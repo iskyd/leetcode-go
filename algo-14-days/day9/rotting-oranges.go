@@ -37,8 +37,9 @@ func orangesRotting(grid [][]int) int {
 	ans := 0
 	for !queue.IsEmpty() && fresh > 0 {
 		ans++
+		l := len(queue)
 
-		for i := 0; i < len(queue); i++ {
+		for i := 0; i < l; i++ {
 			queue, v = queue.Pop()
 			m, n := v[0], v[1]
 			for _, dir := range dirs {
@@ -59,7 +60,8 @@ func orangesRotting(grid [][]int) int {
 
 func main() {
 	// grid := [][]int{{2, 1, 1}, {1, 1, 0}, {0, 1, 1}}
-	grid := [][]int{{2, 1, 1}, {0, 1, 1}, {1, 0, 1}}
+	// grid := [][]int{{2, 1, 1}, {0, 1, 1}, {1, 0, 1}}
 	// grid := [][]int{{0, 2}}
+	grid := [][]int{{2, 1, 1}, {1, 1, 1}, {0, 1, 2}}
 	fmt.Println(orangesRotting(grid))
 }
